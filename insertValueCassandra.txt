@@ -1,0 +1,46 @@
+//INSERT command sensor_data_bus;
+INSERT INTO busev.sensor_data_bus(bus_id, timestamp, can_id, data, dlc, message_name, value)
+VALUES(
+    '3',
+    toTimeStamp(now()),
+    'bis biru',
+    'Surabaya',
+    7,
+    'ini adalah bus merah', { 'tiket': 12.500 });
+
+//INSERT Command bus_location;
+INSERT INTO busev.bus_location(topic, bus_id, timestamp, lat, long)
+VALUES(
+    'Bagong',
+    'bus_2',
+    toTimeStamp(now()),
+    -7.26291,
+    112.74291
+);
+
+//INSERT Command driver_fatigue;
+INSERT INTO busev.driver_fatigue(topic, bus_id, timestamp, status)
+VALUES(
+    'Bagong',
+    'bus_34',
+    toTimeStamp(now()),
+    3
+);
+
+//INSERT Command seat_occupancy
+INSERT INTO busev.seat_occupancy(topic, bus_id, seat_number, timestamp)
+VALUES(
+    'HarapanJaya',
+    'bus_35',
+    {'1', '2', '3', '4', '5', '11', '12', '13', '17', '20', '21', '27', '28', '29'},
+    toTimeStamp(now())
+);
+
+//INSERT Command total_mileage_day;
+INSERT INTO busev.total_mileage_day(topic, bus_id, date, day_km)
+VALUES(
+    'HarapanJaya',
+    'bus_35',
+    toDate(now()),
+    172.12
+);
