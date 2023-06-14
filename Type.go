@@ -33,11 +33,10 @@ type TotalMileageBus struct {
 
 type SensorDataBus struct {
 	BusID       string             `json:"bus_id"`
-	MessageName string             `json:"message_name"`
 	canId       string             `json:"can_id"`
 	data        string             `json:"data"`
 	dlc         int                `json:"dlc"`
-	Value       map[string]float32 `json:"value"`
+	Value       string 			   `json:"value"`
 	Timestamp   time.Time          `json:"timestamp"`
 }
 

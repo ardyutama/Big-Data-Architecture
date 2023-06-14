@@ -158,11 +158,10 @@ func GetAllSensorBus(w http.ResponseWriter, r *http.Request) {
 	for iter.MapScan(m) {
 		allSensorBus = append(allSensorBus, SensorDataBus{
 			BusID:       m["bus_id"].(string),
-			MessageName: m["message_name"].(string),
 			canId:       m["can_id"].(string),
 			data:        m["data"].(string),
 			dlc:         m["dlc"].(int),
-			Value:       m["value"].(map[string]float32),
+			Value:       m["value"].(string),
 			Timestamp:   m["timestamp"].(time.Time),
 		})
 		m = map[string]interface{}{}
@@ -186,8 +185,7 @@ func GetOneSensorBusById(w http.ResponseWriter, r *http.Request) {
 			canId:       m["can_id"].(string),
 			data:        m["data"].(string),
 			dlc:         m["dlc"].(int),
-			MessageName: m["message_name"].(string),
-			Value:       m["value"].(map[string]float32),
+			Value:       m["value"].(string),
 			Timestamp:   m["timestamp"].(time.Time),
 		})
 		m = map[string]interface{}{}
@@ -212,8 +210,7 @@ func GetOneSensorBus(w http.ResponseWriter, r *http.Request) {
 	for iter.MapScan(m) {
 		allSensorBus = append(allSensorBus, SensorDataBus{
 			BusID:       m["bus_id"].(string),
-			MessageName: m["message_name"].(string),
-			Value:       m["value"].(map[string]float32),
+			Value:       m["value"].(string),
 			Timestamp:   m["timestamp"].(time.Time),
 		})
 		m = map[string]interface{}{}
